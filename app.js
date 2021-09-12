@@ -9,6 +9,8 @@ dotenv.config({ path: './config/config.env' });
 //importing all reequired routes
 const taskRoute = require('./routes/taskRoutes');
 
+const homeRoute = require('./routes/homeRoutes');
+
 //App configuration or middleware
 app.use(express.json());
 app.use(express.static(`${__dirname}/public`));
@@ -20,5 +22,6 @@ if (process.env.NODE_ENV === 'development') {
 }
 //REST api
 app.use('/api/task', taskRoute);
+app.use('/', homeRoute);
 
 module.exports = app;
