@@ -20,6 +20,7 @@ if (process.env.NODE_ENV === 'development') {
 } else {
   console.log(process.env.NODE_ENV);
 }
+
 //REST api
 app.use('/api/task', taskRoute);
 app.use('/', homeRoute);
