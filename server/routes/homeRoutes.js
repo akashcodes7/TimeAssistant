@@ -3,8 +3,8 @@ const express = require('express');
 const router = express.Router();
 
 //importing controller
-const homeController = require('../controllers/homeController');
+const pageController = require('../controllers/pageController');
 
-router.route('/').get(homeController.home);
+router.route('/').get(pageController.homePage);
 
 module.exports = router;

@@ -3,16 +3,20 @@ const mongoose = require('mongoose');
 const UserSchema = new mongoose.Schema({
   name: {
     type: String,
-    required: true,
+    required: [true, 'Name will not be empty!'],
   },
   email: {
     type: String,
-    required: true,
+    required: [true, 'Email will not be empty!'],
+    unique: true,
+    lowercase: true,
   },
   password: {
     type: String,
     required: true,
+    minlength: 8,
   },
+  passwordChangedAt: Date,
   avatar: {
     type: String,
   },
@@ -22,5 +26,5 @@ const UserSchema = new mongoose.Schema({
   },
 });
 
-const User = mongoose.model('Task', UserSchema);
+const User = mongoose.model('User', UserSchema);
 module.exports = User;
